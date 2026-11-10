@@ -159,7 +159,7 @@ details[open] summary:after{content:"✓";background:var(--royal);color:#fff;tra
 .promo h3{font-family:Unbounded;font-size:18px;color:var(--navy);margin:8px 0 6px}
 .promo p{color:var(--body);font-size:15px}
 .promo .ic{font-size:30px}
-.promo .royal{background:linear-gradient(130deg,var(--royal),var(--bright));border-color:transparent;color:#fff}
+.promo .royal{background:linear-gradient(120deg,var(--navy),var(--royal) 110%);border-color:transparent;color:#fff}
 .promo .royal h3,.promo .royal p{color:#fff}
 .promo .royal:before,.promo .royal:after{border-color:#fff}
 /* final CTA */
@@ -222,9 +222,6 @@ footer .slg{font-family:Unbounded;font-weight:800;letter-spacing:3px;color:#fff;
 summary:after{content:"+";font-family:Sora;font-weight:700;font-size:22px;line-height:1}
 details[open] summary:after{content:"+";background:var(--royal);color:#fff;transform:translateY(-50%) rotate(45deg)}
 summary:hover:after{background:var(--royal);color:#fff}
-.who{position:relative;z-index:1;width:min(340px,80%);margin:22px auto 0;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 50% 40%,#fff,var(--pale2) 60%,#d3e4ff);border:1.5px solid var(--line);overflow:hidden;box-shadow:var(--shadow)}
-.who img{position:absolute;inset:auto 0 0 0;width:100%;height:100%;object-fit:cover;object-position:top center}
-.who.empty{display:none}
 /* little interactive things */
 .handle{font:inherit;font-weight:700;color:var(--navy);background:var(--pale2);border:1.5px dashed var(--royal);border-radius:8px;padding:1px 8px;cursor:pointer}
 .handle:hover{background:var(--royal);color:#fff}
@@ -241,6 +238,27 @@ summary:hover:after{background:var(--royal);color:#fff}
 .btn:active,.fchip:active,.round:active{transform:scale(.96)}
 .stages{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
 .stages i{font-style:normal;font-size:12.5px;font-weight:700;padding:6px 12px;border-radius:20px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff}
+
+/* the stressed student beside the questions */
+.faqgrid{position:relative;z-index:1;display:grid;grid-template-columns:360px 1fr;gap:56px;align-items:start;margin-top:36px}
+.faqside .faqtools,.faqside .faq,.faqside .nohit{max-width:none;margin-left:0;margin-right:0}
+.faqside .faqtools{margin-top:0}
+.who{position:sticky;top:96px;margin:0}
+.who .back{position:absolute;inset:18px -18px -18px 18px;border-radius:190px 190px 22px 22px;background:linear-gradient(140deg,var(--royal),var(--bright));transform:rotate(3deg)}
+.who .frame{position:relative;border-radius:180px 180px 20px 20px;overflow:hidden;border:6px solid #fff;box-shadow:0 30px 50px -28px rgba(10,26,92,.7);aspect-ratio:3/4;background:var(--pale)}
+.who img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 30%;transition:transform .6s}
+.who:hover img{transform:scale(1.04)}
+.who .q{z-index:2}
+.who .note{position:absolute;left:-28px;bottom:26%;z-index:3;font-family:Caveat;font-size:27px;line-height:1;color:var(--ink);background:#fff;padding:8px 14px 10px;border-radius:12px;border:2px solid var(--ink);transform:rotate(-6deg);box-shadow:4px 4px 0 var(--ink)}
+.who .sticky{position:absolute;right:-30px;bottom:-14px;z-index:3;width:150px;background:#ffd84d;color:var(--ink);font-family:Caveat;font-size:23px;line-height:1.05;padding:14px 14px 16px;transform:rotate(5deg);box-shadow:0 14px 20px -12px rgba(0,0,0,.45)}
+.who .sticky:before{content:"";position:absolute;top:-9px;left:50%;width:52px;height:18px;margin-left:-26px;background:rgba(255,255,255,.65);transform:rotate(-4deg)}
+.who .sticky .arr:after{content:"→"}
+.who .sticky span{display:inline-block;animation:nudge 1.4s ease-in-out infinite}
+@keyframes nudge{50%{transform:translateX(5px)}}
+.pic{width:58px;height:58px;border-radius:14px;background:var(--navy);display:grid;place-items:center;margin-bottom:6px;transition:transform .3s}
+.pic svg{width:28px;height:28px}
+.pic.light{background:#fff}
+.promo .panel:hover .pic{transform:rotate(-8deg) scale(1.06)}
 /* responsive */
 @media (max-width:980px){
  .svc{grid-template-columns:1fr 1fr}
@@ -286,6 +304,16 @@ summary:hover:after{background:var(--royal);color:#fff}
  .tile.feat,.tile.free{grid-column:auto}
  .tile.f1 b{font-size:24px}
  .tile .go{opacity:1;transform:none}
+}
+@media (max-width:980px){
+ .faqgrid{grid-template-columns:1fr;gap:46px}
+ .who{position:relative;top:0;width:min(330px,82%);margin:0 auto}
+ .who .sticky .arr:after{content:"↓"}
+ .who .sticky{width:140px}
+}
+@media (max-width:520px){
+ .who .note{left:-12px;font-size:23px}
+ .who .sticky{right:-10px;font-size:20px;width:126px}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
@@ -402,9 +430,19 @@ summary:hover:after{background:var(--royal);color:#fff}
    <h2>FAQ</h2>
    <div class="paren">(Frequently Asked Questions)</div>
    <div class="badge"><svg viewBox="0 0 150 96"><path d="M20 30 C 30 6, 120 2, 140 34 C 156 62, 112 92, 64 90 C 20 88, 0 62, 14 38 C 22 22, 50 12, 84 12" fill="none" stroke="#0b0f1a" stroke-width="2.4" stroke-linecap="round"/></svg><div>Ask us<br>anything<small>STUDENT EDITION</small></div></div>
-   <!-- the thinking student: add student.png (a cut-out photo, transparent background) and it appears here -->
-   <div class="who"><img src="student.png" alt="A student thinking about their project" onerror="this.parentNode.classList.add('empty')"></div>
   </div>
+  <div class="faqgrid">
+  <figure class="who">
+   <div class="back"></div>
+   <div class="frame"><img src="student.jpg" alt="A stressed student at his desk, hands on his head, as the hourglass runs out" loading="lazy" width="900" height="1350"></div>
+   <span class="q solid" style="left:-6%;top:4%;font-size:76px;transform:rotate(-16deg)">?</span>
+   <span class="q outline" style="right:-4%;top:-2%;font-size:58px;transform:rotate(14deg)">?</span>
+   <span class="q outline" style="right:8%;top:20%;font-size:34px;transform:rotate(-10deg)">?</span>
+   <span class="spark" style="left:6%;bottom:40%">✦</span>
+   <figcaption class="note">Deadline tomorrow?! 😩</figcaption>
+   <div class="sticky">Relax. Your answers are right here <span class="arr"></span></div>
+  </figure>
+  <div class="faqside">
   <div class="faqtools">
    <label class="search"><span>🔎</span><input id="faqq" type="search" placeholder="Search the questions… e.g. pay, preview, topic" autocomplete="off"></label>
    <button class="btn line sm" id="expand" type="button">Open all</button>
@@ -426,6 +464,8 @@ summary:hover:after{background:var(--royal);color:#fff}
    <details><summary>Which schools do you work with?</summary><div class="ans">Students from universities, technical universities, nursing and midwifery colleges and colleges of education across Ghana. Tell us your school when you order, so we follow its format.</div></details>
    <details><summary>How do I contact you?</summary><div class="ans">Message us in the bot, <b>@WorkWizards_TechBot</b>, or call <a href="tel:+233200207537">020 020 7537</a> or <a href="tel:+233594706801">059 470 6801</a>.</div></details>
   </div>
+  </div>
+  </div>
  </div>
 </section>
 
@@ -434,8 +474,8 @@ summary:hover:after{background:var(--royal);color:#fff}
   <div class="kicker">SAVE AND EARN</div>
   <h2>Promo codes &amp; <span class="b">ambassadors</span></h2>
   <div class="promo">
-   <div class="panel"><div class="ic">🎟</div><h3>Got a code from a friend?</h3><p>Enter it when you order to get a discount on your work.</p></div>
-   <div class="panel royal"><div class="ic">🚀</div><h3>Become an ambassador</h3><p>Share your own code with classmates. They get 5% off and you earn 10% of what they pay. Message an admin in the bot to join.</p></div>
+   <div class="panel"><div class="pic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.5"/></svg></div><h3>Got a code from a friend?</h3><p>Enter it when you order to get a discount on your work.</p></div>
+   <div class="panel royal"><div class="pic light"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0a1a5c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9.5c-.5-1-1.6-1.5-3-1.5-1.8 0-3 .9-3 2s1.2 1.7 3 2 3 .9 3 2-1.2 2-3 2c-1.4 0-2.5-.5-3-1.5M12 6.5v11"/></svg></div><h3>Become an ambassador</h3><p>Share your own code with classmates. They get 5% off and you earn 10% of what they pay. Message an admin in the bot to join.</p></div>
   </div>
  </div>
 </section>

@@ -177,6 +177,70 @@ details[open] summary:after{content:"✓";background:var(--royal);color:#fff;tra
 footer{background:linear-gradient(90deg,var(--navy),var(--royal));color:#dbe7ff;font-size:13.5px;text-align:center;padding:26px 0 30px;margin-top:84px}
 footer b{color:#fff}
 footer .slg{font-family:Unbounded;font-weight:800;letter-spacing:3px;color:#fff;font-size:12px;margin-bottom:6px}
+
+/* services: filter chips + bento tiles */
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.fchip{font:inherit;font-weight:700;font-size:14px;cursor:pointer;border:1.5px solid var(--line);background:#fff;color:var(--navy);padding:10px 18px;border-radius:30px;transition:all .2s}
+.fchip:hover{border-color:var(--royal);transform:translateY(-1px)}
+.fchip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-flow:dense;gap:16px;margin-top:26px}
+.tile{position:relative;display:flex;flex-direction:column;gap:6px;min-height:178px;padding:20px 20px 18px;border-radius:18px;text-decoration:none;color:var(--ink);background:#fff;border:1.5px solid var(--line);overflow:hidden;transition:transform .25s,box-shadow .25s,border-color .25s,opacity .3s}
+.tile:hover{transform:translateY(-5px) rotate(-.4deg);box-shadow:0 26px 40px -24px rgba(31,79,216,.6);border-color:var(--royal)}
+.tile .tic{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;font-size:25px;background:var(--pale2);margin-bottom:6px;transition:transform .3s}
+.tile:hover .tic{transform:rotate(-8deg) scale(1.08)}
+.tile .tcat{font-family:Unbounded;font-weight:700;font-size:9.5px;letter-spacing:1.8px;color:var(--royal)}
+.tile b{font-family:Unbounded;font-size:16px;line-height:1.25}
+.tile .tline{font-size:13.5px;color:var(--body)}
+.tile .go{margin-top:auto;padding-top:8px;font-weight:700;font-size:13.5px;color:var(--royal);opacity:0;transform:translateY(6px);transition:all .25s}
+.tile .go i{font-style:normal;display:inline-block;transition:transform .25s}
+.tile:hover .go,.tile:focus .go{opacity:1;transform:none}
+.tile:hover .go i{transform:translateX(4px)}
+.tile .new{position:absolute;top:14px;right:14px;font-family:Unbounded;font-weight:800;font-size:10px;letter-spacing:1.5px;padding:5px 10px;border-radius:20px;background:#ffb347;color:var(--ink);transform:rotate(4deg)}
+.tile.off{display:none}
+.tile.writing .tic{background:#e3e9ff}.tile.present .tic{background:#dcecff}.tile.engineering .tic{background:#e5f4ff}.tile.students .tic{background:#eaf3ff}
+.tile.feat{grid-column:span 2;min-height:200px}
+.tile.feat b{font-size:22px}
+.tile.feat .tline{font-size:15px;max-width:440px}
+.tile.feat .go{opacity:1;transform:none}
+.tile.f1{grid-row:span 2;background:linear-gradient(140deg,var(--navy),var(--royal) 70%,var(--bright));color:#fff;border-color:transparent}
+.tile.f1 b{font-size:30px}.tile.f1 .tline,.tile.f1 .tcat,.tile.f1 .go{color:#dbe7ff}
+.tile.f1 .tic{background:rgba(255,255,255,.15);width:66px;height:66px;font-size:34px}
+.tile.f1:after{content:"";position:absolute;right:-60px;bottom:-60px;width:240px;height:240px;border-radius:50%;border:40px solid rgba(255,255,255,.07)}
+.tile.f2{background:var(--ink);color:#fff;border-color:transparent}
+.tile.f2 .tline,.tile.f2 .go{color:#cdd8ff}.tile.f2 .tcat{color:var(--sky)}.tile.f2 .tic{background:rgba(255,255,255,.12)}
+.tile.f3{background:var(--pale)}
+.tile.free{grid-column:span 2;border:2.5px dashed var(--royal);background:repeating-linear-gradient(-45deg,#fff 0 14px,var(--pale) 14px 28px)}
+.tile.free .go{opacity:1;transform:none}
+.tile.free code{background:var(--navy);color:#fff;padding:1px 6px;border-radius:5px;font-size:12.5px}
+/* FAQ tools, + icons, the student photo */
+.faqtools{position:relative;z-index:1;max-width:820px;margin:40px auto 0;display:flex;gap:10px}
+.search{flex:1;display:flex;align-items:center;gap:10px;background:#fff;border:1.5px solid var(--line);border-radius:40px;padding:0 18px;box-shadow:var(--shadow)}
+.search:focus-within{border-color:var(--royal)}
+.search input{flex:1;border:0;outline:0;font:inherit;font-size:15px;padding:13px 0;background:transparent;color:var(--ink)}
+.nohit{position:relative;z-index:1;max-width:820px;margin:16px auto 0;text-align:center;color:var(--body)}
+.faq{margin-top:18px}
+summary:after{content:"+";font-family:Sora;font-weight:700;font-size:22px;line-height:1}
+details[open] summary:after{content:"+";background:var(--royal);color:#fff;transform:translateY(-50%) rotate(45deg)}
+summary:hover:after{background:var(--royal);color:#fff}
+.who{position:relative;z-index:1;width:min(340px,80%);margin:22px auto 0;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 50% 40%,#fff,var(--pale2) 60%,#d3e4ff);border:1.5px solid var(--line);overflow:hidden;box-shadow:var(--shadow)}
+.who img{position:absolute;inset:auto 0 0 0;width:100%;height:100%;object-fit:cover;object-position:top center}
+.who.empty{display:none}
+/* little interactive things */
+.handle{font:inherit;font-weight:700;color:var(--navy);background:var(--pale2);border:1.5px dashed var(--royal);border-radius:8px;padding:1px 8px;cursor:pointer}
+.handle:hover{background:var(--royal);color:#fff}
+.links a.on{color:var(--royal);box-shadow:inset 0 -3px 0 var(--royal)}
+.fab{position:fixed;right:18px;bottom:22px;z-index:30;display:grid;gap:10px;opacity:0;pointer-events:none;transform:translateY(10px);transition:all .3s}
+.fab.show{opacity:1;pointer-events:auto;transform:none}
+.round{width:46px;height:46px;border-radius:50%;border:0;cursor:pointer;background:#fff;color:var(--royal);font-size:20px;font-weight:700;box-shadow:0 10px 24px -10px rgba(10,26,92,.6);border:1.5px solid var(--line);transition:transform .2s}
+.round:hover{transform:scale(1.08);background:var(--royal);color:#fff}
+.mobile-cta{display:none}
+.toast{position:fixed;left:50%;bottom:90px;transform:translate(-50%,20px);background:var(--ink);color:#fff;padding:10px 18px;border-radius:30px;font-weight:600;font-size:14px;opacity:0;pointer-events:none;transition:all .3s;z-index:40}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+.btn:active,.fchip:active,.round:active{transform:scale(.96)}
+.stages{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.stages i{font-style:normal;font-size:12.5px;font-weight:700;padding:6px 12px;border-radius:20px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff}
 /* responsive */
 @media (max-width:980px){
  .svc{grid-template-columns:1fr 1fr}
@@ -206,6 +270,22 @@ footer .slg{font-family:Unbounded;font-weight:800;letter-spacing:3px;color:#fff;
  section{padding:64px 0}
  .nav .btn.sm{padding:8px 12px;font-size:12.5px}
  .brand{font-size:15.5px}
+}
+@media (max-width:980px){
+ .bento{grid-template-columns:repeat(2,1fr)}
+ .tile.f1{grid-row:auto}
+}
+@media (max-width:820px){
+ .mobile-cta{display:flex;justify-content:center;position:fixed;left:16px;right:96px;bottom:22px;z-index:30;opacity:0;pointer-events:none;transform:translateY(10px);transition:all .3s}
+ .mobile-cta.show{opacity:1;pointer-events:auto;transform:none}
+ .faqtools{flex-direction:column}
+ .faqtools .btn{align-self:flex-start}
+}
+@media (max-width:520px){
+ .bento{grid-template-columns:1fr}
+ .tile.feat,.tile.free{grid-column:auto}
+ .tile.f1 b{font-size:24px}
+ .tile .go{opacity:1;transform:none}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
@@ -262,24 +342,35 @@ footer .slg{font-family:Unbounded;font-weight:800;letter-spacing:3px;color:#fff;
 </div></div>
 
 <section id="services">
+ <div class="topo" style="opacity:.55"></div>
  <div class="wrap">
   <div class="kicker">WHAT WE DO</div>
-  <h2>Our <span class="b">services</span></h2>
-  <p class="intro">Help for students in universities, technical universities, nursing and midwifery colleges and colleges of education across Ghana.</p>
-  <div class="svc">
-   <div class="panel navy"><div class="tag">WRITING</div><h3>Reports &amp; theses</h3><ul>
-    <li><i>📄</i>Project reports</li><li><i>🎓</i>Theses and final year projects</li><li><i>✍️</i>Rephrase / rewrite</li><li><i>🔍</i>Plagiarism check</li></ul></div>
-   <div class="panel royal"><div class="tag">PRESENT &amp; RESEARCH</div><h3>Slides &amp; data</h3><ul>
-    <li><i>📊</i>PowerPoint presentations</li><li><i>📋</i>Surveys and questionnaires</li><li><i>📈</i>Data analysis</li><li><i>🧮</i>MATLAB</li></ul></div>
-   <div class="panel outline"><div class="tag">ENGINEERING</div><h3>Design &amp; build</h3><ul>
-    <li><i>📐</i>AutoCAD drawings</li><li><i>🧊</i>3D modelling</li><li><i>⚙️</i>SolidWorks and Solid Edge</li><li><i>🌀</i>ANSYS</li><li><i>🔌</i>Arduino and 🧪 Proteus</li></ul></div>
-   <div class="panel pale"><div class="tag">STUDENTS &amp; CAREERS</div><h3>Guidance &amp; more</h3><ul>
-    <li><i>🧭</i>Final Year Project Guidance</li><li><i>🩺</i>Nursing &amp; Midwifery</li><li><i>🧾</i>CV writing</li><li><i>🗂</i>Portfolios</li><li><i>🌐</i>Business websites</li></ul></div>
-  </div>
-  <div class="ideas">
-   <div class="big">💡</div>
-   <div><h3>Need a final-year project topic? It's free.</h3><p>Browse ideas by engineering programme and level, save the ones you like, and ask for guidance when you're ready. Open the bot and send <code>/ideas</code>.</p></div>
-   <a class="btn blue" href="https://t.me/WorkWizards_TechBot">Browse ideas</a>
+  <h2>Pick your <span class="b">magic</span></h2>
+  <p class="intro">21 services for students in universities, technical universities, nursing and midwifery colleges and colleges of education across Ghana. Tap a group to filter, then tap a service to order it on Telegram.</p>
+  <div class="filters" role="tablist" aria-label="Filter services"><button class="fchip on" data-f="all" type="button">✦ All</button><button class="fchip" data-f="writing" type="button">✍️ Writing</button><button class="fchip" data-f="present" type="button">📊 Present &amp; research</button><button class="fchip" data-f="engineering" type="button">⚙️ Engineering</button><button class="fchip" data-f="students" type="button">🎓 Students &amp; careers</button></div>
+  <div class="bento" id="bento">
+   <a class="tile students feat f1" data-cat="students" href="https://t.me/WorkWizards_TechBot"><span class="new">NEW</span><span class="tic">🧭</span><span class="tcat">STUDENTS & CAREERS</span><b>Final Year Project Guidance</b><span class="tline">Step by step from topic and proposal to building, testing and defence.</span><span class="stages"><i>Topic</i><i>Proposal</i><i>Chapters</i><i>Design</i><i>Simulation</i><i>Build</i><i>Testing</i><i>Defence</i></span><span class="go">Order this <i>→</i></span></a>
+   <a class="tile writing feat f2" data-cat="writing" href="https://t.me/WorkWizards_TechBot"><span class="tic">📄</span><span class="tcat">WRITING</span><b>Project Reports</b><span class="tline">Every chapter, written and formatted to your school's rules.</span><span class="go">Order this <i>→</i></span></a>
+   <a class="tile writing " data-cat="writing" href="https://t.me/WorkWizards_TechBot"><span class="tic">🎓</span><span class="tcat">WRITING</span><b>Thesis</b><span class="tline">From proposal to final chapters, with drafts and corrections.</span><span class="go">Order this <i>→</i></span></a>
+   <a class="tile students " data-cat="students" href="https://t.me/WorkWizards_TechBot"><span class="tic">🎓</span><span class="tcat">STUDENTS & CAREERS</span><b>Final Year Projects</b><span class="tline">Complete projects, built and written up with you.</span><span class="go">Order this <i>→</i></span></a>
+   <a class="tile present " data-cat="present" href="https://t.me/WorkWizards_TechBot"><span class="tic">📊</span><span class="tcat">PRESENT & RESEARCH</span><b>PowerPoint</b><span class="tline">Proposal and defence slides that look sharp.</span><span class="go">Order this <i>→</i></span></a>
+   <a class="tile present " data-cat="present" href="https://t.me/WorkWizards_TechBot"><span class="tic">📈</span><span class="tcat">PRESENT & RESEARCH</span><b>Data Analysis</b><span class="tline">SPSS, Excel and Python, with results explained.</span><span class="go">Order this <i>→</i></span></a>
+   <a class="tile engineering " data-cat="engineering" href="https://t.me/WorkWizards_TechBot"><span class="tic">📐</span><span class="tcat">ENGINEERING</span><b>AutoCAD Drawing</b><span class="tline">Clean 2D drawings to your scale and title block.</span><span class="go">Order this <i>→</i></span></a>
+   <a class="tile engineering " data-cat="engineering" href="https://t.me/WorkWizards_TechBot"><span class="tic">🧊</span><span class="tcat">ENGINEERING</span><b>3D Modelling</b><span class="tline">Models and renders ready to present or print.</span><span class="go">Order this <i>→</i></span></a>
+   <a class="tile engineering " data-cat="engineering" href="https://t.me/WorkWizards_TechBot"><span class="tic">⚙️</span><span class="tcat">ENGINEERING</span><b>SolidWorks</b><span class="tline">Parts, assemblies, drawings and renders.</span><span class="go">Order this <i>→</i></span></a>
+   <a class="tile engineering " data-cat="engineering" href="https://t.me/WorkWizards_TechBot"><span class="tic">⚙️</span><span class="tcat">ENGINEERING</span><b>Solid Edge</b><span class="tline">Parts, assemblies and drawings.</span><span class="go">Order this <i>→</i></span></a>
+   <a class="tile engineering " data-cat="engineering" href="https://t.me/WorkWizards_TechBot"><span class="tic">🌀</span><span class="tcat">ENGINEERING</span><b>ANSYS</b><span class="tline">Simulation and analysis with clear results.</span><span class="go">Order this <i>→</i></span></a>
+   <a class="tile present " data-cat="present" href="https://t.me/WorkWizards_TechBot"><span class="tic">🧮</span><span class="tcat">PRESENT & RESEARCH</span><b>MATLAB</b><span class="tline">Code, simulations and plots that run.</span><span class="go">Order this <i>→</i></span></a>
+   <a class="tile engineering " data-cat="engineering" href="https://t.me/WorkWizards_TechBot"><span class="tic">🧪</span><span class="tcat">ENGINEERING</span><b>Proteus</b><span class="tline">Circuit design and simulation.</span><span class="go">Order this <i>→</i></span></a>
+   <a class="tile engineering " data-cat="engineering" href="https://t.me/WorkWizards_TechBot"><span class="tic">🔌</span><span class="tcat">ENGINEERING</span><b>Arduino Project</b><span class="tline">Code, circuit and build for your project.</span><span class="go">Order this <i>→</i></span></a>
+   <a class="tile present " data-cat="present" href="https://t.me/WorkWizards_TechBot"><span class="tic">📋</span><span class="tcat">PRESENT & RESEARCH</span><b>Survey / Questionnaire</b><span class="tline">Questionnaires and Google Forms that collect clean data.</span><span class="go">Order this <i>→</i></span></a>
+   <a class="tile writing " data-cat="writing" href="https://t.me/WorkWizards_TechBot"><span class="tic">✍️</span><span class="tcat">WRITING</span><b>Rephrase / Rewrite</b><span class="tline">Clearer, original wording that keeps your meaning.</span><span class="go">Order this <i>→</i></span></a>
+   <a class="tile writing " data-cat="writing" href="https://t.me/WorkWizards_TechBot"><span class="tic">🔍</span><span class="tcat">WRITING</span><b>Plagiarism Check</b><span class="tline">Check similarity before you submit.</span><span class="go">Order this <i>→</i></span></a>
+   <a class="tile students feat f3" data-cat="students" href="https://t.me/WorkWizards_TechBot"><span class="tic">🩺</span><span class="tcat">STUDENTS & CAREERS</span><b>Nursing &amp; Midwifery</b><span class="tline">Case studies, care plans, evidence-based practice and research.</span><span class="go">Order this <i>→</i></span></a>
+   <a class="tile students " data-cat="students" href="https://t.me/WorkWizards_TechBot"><span class="tic">🧾</span><span class="tcat">STUDENTS & CAREERS</span><b>CV Writing</b><span class="tline">A professional CV for internships and jobs.</span><span class="go">Order this <i>→</i></span></a>
+   <a class="tile students " data-cat="students" href="https://t.me/WorkWizards_TechBot"><span class="tic">🗂</span><span class="tcat">STUDENTS & CAREERS</span><b>Portfolio Building</b><span class="tline">Show your best work in one place.</span><span class="go">Order this <i>→</i></span></a>
+   <a class="tile students " data-cat="students" href="https://t.me/WorkWizards_TechBot"><span class="tic">🌐</span><span class="tcat">STUDENTS & CAREERS</span><b>Business Website</b><span class="tline">A website for your business, built and launched.</span><span class="go">Order this <i>→</i></span></a>
+   <a class="tile free" data-cat="students" href="https://t.me/WorkWizards_TechBot"><span class="new">FREE</span><span class="tic">💡</span><span class="tcat">FOR EVERY STUDENT</span><b>Project topic ideas</b><span class="tline">Browse final-year ideas by programme and level. Send <code>/ideas</code> in the bot.</span><span class="go">Browse ideas <i>→</i></span></a>
   </div>
  </div>
 </section>
@@ -288,7 +379,7 @@ footer .slg{font-family:Unbounded;font-weight:800;letter-spacing:3px;color:#fff;
  <div class="wrap">
   <div class="kicker">HOW IT WORKS</div>
   <h2>From <span class="b">question</span> to finished work</h2>
-  <p class="intro">Everything happens in one Telegram chat with our bot, <b>@WorkWizards_TechBot</b>.</p>
+  <p class="intro">Everything happens in one Telegram chat with our bot, <button class="handle" type="button" data-copy="@WorkWizards_TechBot" title="Tap to copy">@WorkWizards_TechBot ⧉</button>.</p>
   <div class="journey">
    <div class="step"><div class="hex">1</div><h3>Open the bot</h3><p>Search @WorkWizards_TechBot on Telegram or scan our QR code, then tap Start.</p></div>
    <div class="step"><div class="hex">2</div><h3>Pick a service</h3><p>Answer a few quick questions and send your files, guidelines or supervisor's comments.</p></div>
@@ -311,7 +402,14 @@ footer .slg{font-family:Unbounded;font-weight:800;letter-spacing:3px;color:#fff;
    <h2>FAQ</h2>
    <div class="paren">(Frequently Asked Questions)</div>
    <div class="badge"><svg viewBox="0 0 150 96"><path d="M20 30 C 30 6, 120 2, 140 34 C 156 62, 112 92, 64 90 C 20 88, 0 62, 14 38 C 22 22, 50 12, 84 12" fill="none" stroke="#0b0f1a" stroke-width="2.4" stroke-linecap="round"/></svg><div>Ask us<br>anything<small>STUDENT EDITION</small></div></div>
+   <!-- the thinking student: add student.png (a cut-out photo, transparent background) and it appears here -->
+   <div class="who"><img src="student.png" alt="A student thinking about their project" onerror="this.parentNode.classList.add('empty')"></div>
   </div>
+  <div class="faqtools">
+   <label class="search"><span>🔎</span><input id="faqq" type="search" placeholder="Search the questions… e.g. pay, preview, topic" autocomplete="off"></label>
+   <button class="btn line sm" id="expand" type="button">Open all</button>
+  </div>
+  <p class="nohit" id="nohit" hidden>No question matches that. <a href="https://t.me/WorkWizards_TechBot">Ask us in the bot</a> and an admin will answer.</p>
   <div class="faq">
    <details open><summary>What is WorkWizards?</summary><div class="ans">WorkWizards is a student-focused academic and tech service in Ghana. We help students finish their projects, reports and technical work properly and on time. You order, pay, track and receive everything through our Telegram bot, <b>@WorkWizards_TechBot</b>.</div></details>
    <details><summary>Do I need Telegram to order?</summary><div class="ans">Yes. Telegram is free on Android, iPhone and computer. Install it, search <b>@WorkWizards_TechBot</b> and tap Start. Asking about your work costs nothing.</div></details>
@@ -353,6 +451,50 @@ footer .slg{font-family:Unbounded;font-weight:800;letter-spacing:3px;color:#fff;
  </div>
 </section>
 
-<footer><div class="wrap"><div class="slg">✦ BUILT FOR THE FUTURE ✦</div><b>WorkWizards</b> · Your Academic &amp; Tech Partner · Telegram: <b>@WorkWizards_TechBot</b><br>WorkWizards is an independent student service and is not affiliated with any school.</div></footer>
+<footer><div class="wrap"><div class="slg">✦ BUILT FOR THE FUTURE ✦</div><b>WorkWizards</b> · Your Academic &amp; Tech Partner · Telegram: <b>@WorkWizards_TechBot</b><br>WorkWizards is an independent student service and is not affiliated with any school, but has been approved and tested by lecturers at KNUST, KsTU, UENR, Central University, UG and more.</div></footer>
+
+<div class="fab">
+ <button class="round" id="share" type="button" title="Share this page" aria-label="Share this page">↗</button>
+ <button class="round" id="top" type="button" title="Back to top" aria-label="Back to top">↑</button>
+</div>
+<a class="mobile-cta btn blue" href="https://t.me/WorkWizards_TechBot">Order on Telegram ✦</a>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(function(){
+ var $=function(q,c){return (c||document).querySelector(q)}, $$=function(q,c){return [].slice.call((c||document).querySelectorAll(q))};
+ function toast(t){var el=$('#toast');el.textContent=t;el.classList.add('show');clearTimeout(el._t);el._t=setTimeout(function(){el.classList.remove('show')},2200)}
+ // service filter
+ $$('.fchip').forEach(function(b){b.addEventListener('click',function(){
+  $$('.fchip').forEach(function(x){x.classList.toggle('on',x===b)});
+  var f=b.dataset.f; $$('#bento .tile').forEach(function(t){var hide=f!=='all'&&t.dataset.cat!==f; t.classList.toggle('off',hide)});
+ })});
+ // FAQ search + open all
+ var items=$$('.faq details'), q=$('#faqq'), nohit=$('#nohit');
+ q&&q.addEventListener('input',function(){var v=q.value.trim().toLowerCase(),n=0;
+  items.forEach(function(d){var hit=!v||d.textContent.toLowerCase().indexOf(v)>-1; d.hidden=!hit; if(hit)n++; if(v&&hit)d.open=true});
+  nohit.hidden=n>0});
+ var ex=$('#expand'); ex&&ex.addEventListener('click',function(){var open=ex.textContent==='Open all';
+  items.forEach(function(d){d.open=open}); ex.textContent=open?'Close all':'Open all'});
+ // copy the bot handle (any element with data-copy)
+ $$('[data-copy]').forEach(function(el){el.addEventListener('click',function(e){e.preventDefault();
+  var t=el.dataset.copy; (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){toast('Copied '+t)},function(){toast(t)})})});
+ // share + back to top
+ $('#share').addEventListener('click',function(){var d={title:'WorkWizards',text:'Stuck on your project? WorkWizards has you covered.',url:location.href.split('#')[0]};
+  if(navigator.share){navigator.share(d).catch(function(){})}else if(navigator.clipboard){navigator.clipboard.writeText(d.url).then(function(){toast('Link copied')})}});
+ $('#top').addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+ var fab=$('.fab'), mc=$('.mobile-cta');
+ function onScroll(){var y=window.scrollY>600; fab.classList.toggle('show',y); mc.classList.toggle('show',y)}
+ window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+ // highlight the section you're in, and reveal panels as they scroll in
+ if('IntersectionObserver' in window){
+  var links={}; $$('.links a').forEach(function(a){links[a.getAttribute('href').slice(1)]=a});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&links[e.target.id]){
+   $$('.links a').forEach(function(a){a.classList.remove('on')}); links[e.target.id].classList.add('on')}})},{rootMargin:'-45% 0px -50% 0px'});
+  $$('section[id]').forEach(function(sec){io.observe(sec)});
+  var rv=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');rv.unobserve(e.target)}})},{threshold:.12});
+  $$('.tile,.step,.panel,.faq details').forEach(function(el){el.classList.add('rv');rv.observe(el)});
+ }
+})();
+</script>
 </body>
 </html>

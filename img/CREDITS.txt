@@ -18,8 +18,8 @@ arduino.jpg: "Arduino Uno" by redcctshirt (CC0, flickr) https://www.flickr.com/p
 survey.jpg: "Clipboard Hand" by Kristin Hardwick (CC0, stocksnap) https://stocksnap.io/photo/clipboard-hand-TRKNLIGFAJ
 rephrase.jpg: "Writing Drawing" by Green Chameleon (CC0, stocksnap) https://stocksnap.io/photo/writing-drawing-8Y0EDX4VP9
 plagiarism.jpg: "None" by unknown (CC0, rawpixel) https://www.rawpixel.com/image/5964306/free-public-domain-cc0-photo
-nursing.jpg: "2014_02_04_Banaadir_Hospital-5" by AMISOM Public Information (CC0, flickr) https://www.flickr.com/photos/61765479@N08/12316450354
 cv.jpg: "Work Business" by Kristin Hardwick (CC0, stocksnap) https://stocksnap.io/photo/work-business-J5LXKNDREC
 portfolio.jpg: "Free view notebook computer work" by unknown (CC0, rawpixel) https://www.rawpixel.com/image/5919206/image-book-public-domain-technology
 website.jpg: "Free man designing website layout" by unknown (CC0, rawpixel) https://www.rawpixel.com/image/5926264/photo-image-background-public-domain-person
 ideas.jpg: "I got an idea!!!" by ky0nch3ng (CC0, flickr) https://www.flickr.com/photos/148714304@N03/36910561096
+nursing.jpg: "beautiful african nurse taking care of senior patient in wheelchair" by agilemktg1 (PDM, flickr) https://www.flickr.com/photos/68716695@N06/29095571713

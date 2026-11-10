@@ -771,7 +771,7 @@ footer .slg{color:var(--amber)}
 
 <div class="fab">
  <button class="round" id="share" type="button" title="Share this page" aria-label="Share this page">↗</button>
- <button class="round" id="top" type="button" title="Back to top" aria-label="Back to top">↑</button>
+ <button class="round" id="totop" type="button" title="Back to top" aria-label="Back to top">↑</button>
 </div>
 <a class="mobile-cta btn blue" href="https://t.me/WorkWizards_TechBot?start=web">Order on Telegram</a>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -801,7 +801,7 @@ footer .slg{color:var(--amber)}
  // share + back to top
  $('#share').addEventListener('click',function(){var d={title:'WorkWizards',text:'Stuck on your project? WorkWizards has you covered.',url:location.href.split('#')[0]};
   if(navigator.share){navigator.share(d).catch(function(){})}else if(navigator.clipboard){navigator.clipboard.writeText(d.url).then(function(){toast('Link copied')})}});
- $('#top').addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+ $('#totop').addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
  var fab=$('.fab'), mc=$('.mobile-cta');
  function onScroll(){var y=window.scrollY>600; fab.classList.toggle('show',y); mc.classList.toggle('show',y)}
  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
